@@ -1,0 +1,390 @@
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    /* Gradien soft blue yang lebih cantik */
+    background: linear-gradient(135deg, #eef5ff 2%, #528fc9 50%, #F5FBFF 100%);
+    color:#2c3e50;
+    line-height:1.5;
+}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:980px;margin:0 auto;padding:20px}
+.center{min-height:100vh;display:flex;align-items:center;justify-content:center}
+.topbar{
+    /* Gradien soft blue yang elegan */
+    background: linear-gradient(135deg, #d0e2fa 0%, #f8fbff 50%, #f0f7ff 100%);
+    border-bottom:1px solid #D4E3F8;
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo{width:32px;height:32px}
+
+/* Card dengan desain yang lebih soft dan elegant */
+.card{
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #E1EDFF;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 32px rgba(100, 149, 237, 0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card.nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:120px;
+    font-weight:700;
+    font-size:1.1em;
+    background: linear-gradient(135deg, #ffffff 0%, #fafcff 100%);
+    color: #4A72C4;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.card.nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+.card.nav:hover::before {
+    left: 100%;
+}
+.card.nav:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(100, 149, 237, 0.15);
+    border-color: #B8D4FF;
+}
+
+.auth{width:100%;max-width:400px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.field.small{margin-bottom:8px}
+
+/* Input fields yang lebih stylish */
+input,select,textarea{
+    padding:14px 16px;
+    border: 2px solid #E8F1FF;
+    border-radius:12px;
+    background:#fff;
+    transition:all 0.3s ease;
+    font-size:15px;
+    color: #2c3e50;
+}
+input::placeholder, textarea::placeholder {
+    color: #A8C6FF;
+}
+input:focus,select:focus,textarea:focus{
+    outline:none;
+    border-color:#7BA6F4;
+    box-shadow:0 0 0 4px rgba(123, 166, 244, 0.15);
+    background: #fff;
+}
+
+/* Button styles yang lebih modern */
+.btn{
+    border: 2px solid #D4E3F8;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+    border-radius:12px;
+    padding:12px 20px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    font-weight:600;
+    font-size:15px;
+    color: #4A72C4;
+}
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(100, 149, 237, 0.2);
+    border-color: #B8D4FF;
+}
+.btn.primary{
+    background: linear-gradient(135deg, #7BA6F4 0%, #5D8DE2 100%);
+    border-color: #7BA6F4;
+    color:#fff;
+}
+.btn.primary:hover{
+    background: linear-gradient(135deg, #6B96E4 0%, #4A72C4 100%);
+    border-color: #6B96E4;
+    box-shadow:0 8px 20px rgba(123, 166, 244, 0.3);
+}
+.btn.full{width:100%}
+.link{
+    background:transparent;
+    border:none;
+    color:#7BA6F4;
+    cursor:pointer;
+    font-weight:500;
+    transition: color 0.2s ease;
+}
+.link:hover{color:#4A72C4;}
+
+.row{display:flex;align-items:center}
+.align-center{align-items:center}
+.space-between{justify-content:space-between}
+.end{justify-content:flex-end}
+.gap-8{gap:8px}.gap-12{gap:12px}.gap-16{gap:16px}
+.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}
+
+.grid-2{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:720px){.grid-2{grid-template-columns:1fr 1fr}}
+
+/* Table dengan desain yang lebih soft */
+.table{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 8px;
+    background: transparent;
+}
+.table th,.table td{padding:16px 14px}
+.table thead th{
+    background: linear-gradient(135deg, #F0F7FF 0%, #E8F2FF 100%);
+    border: 1px solid #E1EDFF;
+    border-bottom: 0;
+    color: #4A72C4;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+.table tbody td{
+    background: rgba(255, 255, 255, 0.8);
+    border-top: 1px solid #F0F7FF;
+    border-bottom: 1px solid #F0F7FF;
+    transition: all 0.3s ease;
+}
+.table tbody tr{
+    transition: all 0.3s ease;
+}
+.table tbody tr:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(100, 149, 237, 0.12);
+}
+.table tbody tr:hover td{
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #E1EDFF;
+}
+.table td.right{text-align:right}
+
+/* Modal dengan glassmorphism effect */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index: 1000;
+}
+.modal.show{display:flex}
+.modal-content{
+    background: rgba(255, 255, 255, 0.95);
+    border-radius:20px;
+    max-width:440px;
+    width:100%;
+    padding:24px;
+    border: 1px solid #E1EDFF;
+    box-shadow: 0 20px 60px rgba(100, 149, 237, 0.15);
+    animation: pop 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes pop{
+    0%{transform:scale(0.9);opacity:0}
+    100%{transform:scale(1);opacity:1}
+}
+
+/* Progress bar yang lebih smooth */
+.progress{
+    background:#E8F2FF;
+    height:8px;
+    border-radius:999px;
+    overflow:hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+.progress>div{
+    height:100%;
+    width:0;
+    background: linear-gradient(90deg, #7BA6F4, #9BBDFF);
+    border-radius:999px;
+    transition:width 0.4s ease;
+}
+
+/* Timeline dengan desain yang lebih clean */
+.timeline{
+    list-style:none;
+    padding:0;
+    margin:0;
+    position: relative;
+}
+.timeline li{
+    padding:12px 0 12px 20px;
+    border-left: 3px solid #E1EDFF;
+    margin-left:10px;
+    position: relative;
+}
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #7BA6F4;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #E1EDFF;
+}
+
+/* Inline error styles */
+.is-invalid{
+    border-color:#FF6B8B !important; 
+    background:#FFF5F7 !important;
+}
+.error-text{
+    color:#FF6B8B;
+    font-size:13px;
+    font-weight:500;
+}
+
+/* Toast notifications yang lebih elegant */
+.toast-container{
+    position:fixed;
+    right:20px;
+    top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    z-index:9999;
+}
+.toast{
+    min-width:280px;
+    max-width:380px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #E1EDFF;
+    border-left: 4px solid #B0B0B0;
+    padding:16px 18px;
+    border-radius:14px;
+    box-shadow: 0 12px 32px rgba(100, 149, 237, 0.15);
+    backdrop-filter: blur(10px);
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toast.success{
+    border-left-color:#48BB78;
+    background: rgba(72, 187, 120, 0.05);
+}
+.toast.error{
+    border-left-color:#FF6B8B;
+    background: rgba(255, 107, 139, 0.05);
+}
+.toast.info{
+    border-left-color:#7BA6F4;
+    background: rgba(123, 166, 244, 0.05);
+}
+@keyframes slideIn{
+    from{opacity:0;transform:translateX(100px)}
+    to{opacity:1;transform:translateX(0)}
+}
+
+/* Confirm modal actions */
+.confirm-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+    margin-top:20px;
+}
+.btn.danger{
+    background: linear-gradient(135deg, #FF6B8B 0%, #FF4757 100%);
+    border-color: #FF6B8B;
+    color:#fff;
+}
+.btn.danger:hover{
+    background: linear-gradient(135deg, #FF4757 0%, #FF3742 100%);
+    border-color: #FF4757;
+}
+
+/* Image preview modal */
+.preview-img{
+    max-width:min(92vw,820px);
+    max-height:80vh;
+    border-radius:16px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.2);
+    border: 1px solid #E1EDFF;
+}
+.preview-title{
+    margin-top:12px;
+    text-align:center;
+    color:#4A72C4;
+    font-weight:600;
+}
+
+/* Theme: Dark - Tetap dengan tema soft blue gelap */
+body.dark{
+    background: linear-gradient(135deg, #0A1525 0%, #0F1E35 50%, #152540 100%);
+    color:#E8F2FF;
+}
+body.dark .topbar{
+    background: linear-gradient(135deg, rgba(10, 21, 37, 0.9) 0%, rgba(15, 30, 53, 0.9) 100%);
+    border-bottom-color:#2A4D7C;
+}
+body.dark .card{
+    background: rgba(15, 30, 53, 0.8);
+    border-color:#2A4D7C;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+body.dark .card.nav{
+    background: linear-gradient(135deg, rgba(15, 30, 53, 0.8) 0%, rgba(10, 21, 37, 0.8) 100%);
+    color: #7BA6F4;
+}
+body.dark input,body.dark select,body.dark textarea{
+    background: rgba(10, 21, 37, 0.8);
+    border-color:#2A4D7C;
+    color:#E8F2FF;
+}
+body.dark .table thead th{
+    background: rgba(10, 21, 37, 0.8);
+    border-color:#2A4D7C;
+    color: #7BA6F4;
+}
+body.dark .table tbody td{
+    background: rgba(15, 30, 53, 0.6);
+    border-color:#2A4D7C;
+    color:#E8F2FF;
+}
+body.dark .modal{
+    background:rgba(0, 0, 0, 0.6);
+}
+body.dark .modal-content{
+    background: rgba(15, 30, 53, 0.95);
+    border-color:#2A4D7C;
+    color:#E8F2FF;
+}
+body.dark .toast{
+    background: rgba(15, 30, 53, 0.95);
+    border-color:#2A4D7C;
+    color:#E8F2FF;
+}
+body.dark .timeline li{
+    border-left-color:#2A4D7C;
+}
+body.dark .timeline li::before {
+    background: #7BA6F4;
+    border-color: #0A1525;
+    box-shadow: 0 0 0 2px #2A4D7C;
+}
+
+/* Additional decorative elements */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(123, 166, 244, 0.3), transparent);
+}
